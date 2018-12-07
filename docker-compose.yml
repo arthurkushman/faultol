@@ -1,0 +1,15 @@
+version: '3'
+services:
+  app:
+    image: docker-proxy.gismeteo.net/microservice/html-render/app
+    build: ./
+    environment:
+      - "AMQP_CONNECTION=amqp://rabbit:Qwerty11@rabbitmq-dev1.gm:5672/"
+      - "AMQP_EXCHANGE=fanout_services"
+      - "AMQP_EXCHANGE_TYPE=fanout"
+      - "AMQP_QUEUE=beta.upload.html_pages_dev"
+      - "AMQP_HTML_PATH=/var/sites/shared"
+    volumes:
+    # не удаляйте - для тестов на локальной тачке через докер
+#      - /Users/arthurkushman/go/src/html-render/cache:/var/sites/shared
+      - /var/sites/shared:/var/sites/shared
