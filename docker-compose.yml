@@ -10,6 +10,5 @@ services:
       - "AMQP_QUEUE=beta.upload.html_pages_dev"
       - "AMQP_HTML_PATH=/var/sites/shared"
     volumes:
-    # не удаляйте - для тестов на локальной тачке через докер
 #      - /Users/arthurkushman/go/src/html-render/cache:/var/sites/shared
       - /var/sites/shared:/var/sites/shared

@@ -8,7 +8,7 @@ list:
 	@echo "  - 'image.push' > docker push app"
 
 init:
-	export AMQP_CONNECTION=amqp://rabbit:Qwerty11@rabbitmq-dev1.gm:5672/
+	export AMQP_CONNECTION=amqp://guest:guest@example.com:5672/
 	export AMQP_EXCHANGE=fanout_services
 	export AMQP_QUEUE=beta.upload.html_pages_beta
 	export AMQP_EXCHANGE_TYPE=fanout
@@ -16,9 +16,4 @@ init:
 
 install:
 	go build -o html-render main.go
-
-image.build:
-	docker build -t docker-proxy.gismeteo.net/microservice/html-render/app .
-image.push:
-	docker push docker-proxy.gismeteo.net/microservice/html-render/app
 
