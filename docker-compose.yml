@@ -1,7 +1,7 @@
 version: '3'
 services:
   app:
-    image: docker-proxy.gismeteo.net/microservice/html-render/app
+    image: example.com
     build: ./
     environment:
       - "AMQP_CONNECTION=amqp://rabbit:Qwerty11@rabbitmq-dev1.gm:5672/"
