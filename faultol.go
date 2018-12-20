@@ -198,12 +198,12 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 		maxT, err := strconv.Atoi(maxThreads)
 		check(err)
 
-		if i > maxT { // ждем отработки N кол-ва threads - разгружаем CPU la
+		if i > maxT { // waiting for N threads - releasing CPU la
 			time.Sleep(300 * time.Millisecond)
 		}
 
-		// плодим threads (внутри handler thread) для многопоточной записи файлов на диск
-		// синхронно создаем директорию и асинхронно пишем файлы
+		// spawning multi-threading file writes on disk
+		// sync for dirs async for files
 		go writeFile(uriPath, message.Data)
 
 		// ack deliveries
