@@ -1,12 +1,12 @@
 package faultol_test
 
 import (
-	"testing"
-	"os"
+	"faultol"
 	"log"
+	"os"
 	"path/filepath"
 	"strings"
-	"faultol"
+	"testing"
 )
 
 func TestIndexFileExistence(t *testing.T) {

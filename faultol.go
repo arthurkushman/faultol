@@ -1,15 +1,15 @@
 package faultol
 
 import (
-	"strconv"
-	"time"
+	"encoding/json"
+	"fmt"
+	"github.com/streadway/amqp"
+	"io/ioutil"
 	"log"
 	"os"
-	"io/ioutil"
-	"github.com/streadway/amqp"
-	"fmt"
-	"encoding/json"
+	"strconv"
 	"strings"
+	"time"
 )
 
 const (
@@ -190,7 +190,7 @@ func handle(deliveries <-chan amqp.Delivery, done chan error) {
 
 			recursiveMkDir(htmlPath + uriPath)
 
-			for _, uriPart := range urlSlice[len(urlSlice)-UrlSlice:len(urlSlice)-1] {
+			for _, uriPart := range urlSlice[len(urlSlice)-UrlSlice : len(urlSlice)-1] {
 				uriPath += uriPart
 			}
 		}
