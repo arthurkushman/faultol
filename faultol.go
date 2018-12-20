@@ -1,4 +1,4 @@
-package faultal
+package faultol
 
 import (
 	"strconv"
@@ -29,7 +29,7 @@ var (
 	maxThreads   = os.Getenv("FAULTOL_MAX_THREADS")
 )
 
-func run() {
+func Run() {
 	c, err := NewConsumer(uri, exchange, exchangeType, queue, bindingKey, consumerTag)
 	if err != nil {
 		log.Fatalf("%s", err)
@@ -160,7 +160,7 @@ func (c *Consumer) Shutdown() error {
 }
 
 type Message struct {
-	Uri  string `json:"url"`
+	Uri  string `json:"uri"`
 	Data string `json:"data"`
 }
 
