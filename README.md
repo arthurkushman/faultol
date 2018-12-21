@@ -1,6 +1,9 @@
 # FaulTol
 Fault Tolerance component consumer to save static html files on disk from RabbitMQ
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/arthurkushman/faultol)](https://goreportcard.com/report/github.com/arthurkushman/faultol)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
 ### Setting ENVs
 ```bash
 FAULTOL_AMQP_CONNECTION=amqp://rabbit:Qwerty11@example.com:5672/
@@ -40,7 +43,7 @@ To set a time to consume you can use:
 ```bash
 FAULTOL_AMQP_LIFETIME=300
 ``` 
-if it set to 0 or not set at all consumer will be running forever.
+if it has been set to 0 or not set at all consumer will be running forever.
 
 ### Message structure
 
@@ -68,3 +71,14 @@ or
 etc
 
 Those data contents will be converted into paths and put into directories like: `${FAULTOL_HTML_PATH}/some/route/to/any/123/page.html`, `${FAULTOL_HTML_PATH}/catalog/cats/basket/94713.html`
+
+After installation has been completed, in any place of your app - run:
+```go
+package main
+
+import "faultol"
+
+func main() {
+    faultol.Run()
+}
+```

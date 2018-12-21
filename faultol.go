@@ -35,7 +35,7 @@ func Run() {
 		log.Fatalf("%s", err)
 	}
 
-	lt, err := strconv.Atoi(lifetime)
+	lt, _ := strconv.Atoi(lifetime)
 
 	if lt > 0 {
 		log.Printf("running for %s", lifetime)
